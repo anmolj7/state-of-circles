@@ -1,11 +1,12 @@
 import tkinter as tk 
 
 def circle(dist, radius_1, radius_2):
+    rad_change = (radius_1-radius_2)**2
     rad_sq = (radius_1+radius_2)**2
     dist *= dist 
     if dist == rad_sq:
         return 1 
-    elif dist < rad_sq:
+    elif rad_change <= dist < rad_sq:
         return -1 
     else:
         return 0 
@@ -58,6 +59,7 @@ class App:
 
             #x1, y1 = radius_1, radius_1
             x2, y2 = x1+d, y1
+
 
             self.canvas.create_oval(x1-radius_1, y1-radius_1, x1+radius_1, y1+radius_1)
             self.canvas.create_oval(x2-radius_2, y2-radius_2, x2+radius_2, y2+radius_2)
